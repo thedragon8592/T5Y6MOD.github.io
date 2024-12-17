@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shockify/Inmortal Instructions(Phone)</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .image {
+            margin: 20px 0;
+            max-width: 80%;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .image:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px 5px #00ffcc;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .navigation button {
+            background: linear-gradient(90deg, #00aaff, #0077cc);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .navigation button:hover {
+            box-shadow: 0px 0px 15px 5px #00aaff;
+        }
+
+        .navigation button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .neon {
+            text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Slide 1 -->
+        <div id="slide-1" class="slide active">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TKHi2jAI864?si=ctS4EYuLq19DRBnk" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Slides 3.6 -->
+        <div id="slide-pc-6" class="slide">
+            <h2 class="neon">Pegar URL</h2>
+            <p>3.6. Pegarás la URL en webhook.</p>
+            <img src="https://cdn.discordapp.com/attachments/1318404035480391801/1318404154376454154/image.png?ex=6762330d&is=6760e18d&hm=0ffee1bf478b25a092ca1595d8c8b14bb0c488ced6c53a4f4bd9278c0652071f&" class="image" alt="Pegar URL">
+        </div>
+        <div id="slide-3-6" class="slide">
+            <h2 class="neon">Generar</h2>
+            <p>3.7. Presionarás en "Generar" y espera un momento.</p>
+            <img src="https://cdn.discordapp.com/attachments/1318404035480391801/1318405276881256449/image.png?ex=67623418&is=6760e298&hm=c325ddb5b1906bf1e9687b485552bb05c4c584ee67989ead62c49d2dbd114d4b&" class="image" alt="Generar">
+        </div>
+        <div id="slide-3-8" class="slide">
+            <h2 class="neon">Revisar Canal</h2>
+            <p>3.8. Ahora revisa el canal de donde sacaste el webhook. Te llegará algo así:</p>
+            <img src="https://cdn.discordapp.com/attachments/1318404035480391801/1318405453247680643/image.png?ex=67623442&is=6760e2c2&hm=7bc07bf3052467e1e029de26859cd23672f9683f16bcfbdb6b643b52ca719098&" class="image" alt="Revisar Canal">
+        </div>
+        <div id="slide-4-0" class="slide">
+            <h2 class="neon">Copiar URL de Perfil</h2>
+            <p>4.0. Presiona en "Perfil" y copia la URL.</p>
+            <img src="https://cdn.discordapp.com/attachments/1318404035480391801/1318405684152369204/image.png?ex=67623479&is=6760e2f9&hm=dfa4eab668d725cc8b5841962b2857489f6ed8abf1dfa58b1d84f6d529ea43b5&" class="image" alt="Copiar URL">
+            <img class="image" src="https://cdn.discordapp.com/attachments/1318404035480391801/1318405931578429440/image.png?ex=676234b4&is=6760e334&hm=f6de1d2d8fe172bbc9a2943f2ad1b506d1f3ad7f1246626ff9ba349f41a55b8c&">
+        </div>
+        <div id="slide-4-1" class="slide">
+            <h2 class="neon">Generar Link Hider</h2>
+            <p>4.1. Ve al generador y presiona en "Hyperlink".</p>
+            <img src="https://cdn.discordapp.com/attachments/1318404035480391801/1318406055843332186/image.png?ex=676234d2&is=6760e352&hm=e8aa4d8228d02a6305b30c2586c18265ed4d45823ce4ee03f8471e8456005861&" class="image" alt="Link Hider">
+        </div>
+        <div id="slide-4-2" class="slide">
+            <h2 class="neon">Pegar y Generar</h2>
+            <p>4.2. Pega la URL del perfil, presiona en "Generar" y copia el nuevo link. ¡Listo!</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prev-btn" onclick="prevSlide()" disabled>Anterior</button>
+            <button id="next-btn" onclick="nextSlide()">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === slides.length;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index + 1 === currentSlide);
+            });
+            updateButtons();
+        }
+    </script>
+</body>
+</html>

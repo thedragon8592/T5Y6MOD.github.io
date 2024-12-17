@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions - T5Y6 MOD</title>
+    <style>
+        /* Global styles */
+        body {
+            background: linear-gradient(45deg, #141414, #0d6efd);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: backgroundAnimation 5s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #141414, #0d6efd); }
+            50% { background: linear-gradient(45deg, #0d6efd, #141414); }
+            100% { background: linear-gradient(45deg, #141414, #0d6efd); }
+        }
+
+        .navbar {
+            background-color: #0d6efd;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            color: #ff7f00;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border: 2px solid #0d6efd;
+            background: linear-gradient(135deg, #2e2e2e, #141414);
+            animation: containerAnimation 2s ease-out;
+        }
+
+        @keyframes containerAnimation {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #0d6efd;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            background: #2c2c2c;
+            border: 2px solid #0d6efd;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff7f00;
+            background: #3e3e3e;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #bbb;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button-container button {
+            background-color: #0d6efd;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #ff7f00;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>T5Y6 MOD</h1>
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Spam</a>
+            <a href="#">Suggestions</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Send a Suggestion</h2>
+
+        <div class="form-group">
+            <label for="username">Your Name (Optional)</label>
+            <input type="text" id="username" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="problem-type">Select Issue</label>
+            <select id="problem-type">
+                <option value="Page not working">The page is not working</option>
+                <option value="Link not working">The link is not working</option>
+                <option value="Cookies issue">Cookies are not working</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="suggestion-content">Your Suggestion</label>
+            <textarea id="suggestion-content" placeholder="Write your suggestion here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image-url">Thumbnail Image URL (Optional)</label>
+            <input type="url" id="image-url" placeholder="Enter image URL">
+        </div>
+
+        <div class="button-container">
+            <button onclick="sendSuggestion()">Submit Suggestion</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Powered by <a href="#">T5Y6 MOD</a>. All rights reserved.
+    </footer>
+
+    <script>
+        const webhookURL = "https://discord.com/api/webhooks/1316977115736047698/0-zl69Ls0VB_zTH0IfPQPgZpAUio_FXEZ8_RUzntY_TweeV3Si5PUS-Sdg4fUAeN_ano";
+
+        async function sendSuggestion() {
+            const username = document.getElementById('username').value || "Anonymous";
+            const problemType = document.getElementById('problem-type').value;
+            const suggestionContent = document.getElementById('suggestion-content').value;
+            const imageUrl = document.getElementById('image-url').value;
+
+            if (!suggestionContent) {
+                alert("Please enter a suggestion before submitting.");
+                return;
+            }
+
+            const embed = {
+                title: "New Suggestion Received!",
+                description: `**From:** ${username}\n**Issue Type:** ${problemType}\n**Suggestion:** ${suggestionContent}`,
+                color: 3447003, // Blue
+                footer: {
+                    text: "Sent via Suggestion Form",
+                },
+                thumbnail: imageUrl ? { url: imageUrl } : undefined,
+            };
+
+            const payload = {
+                embeds: [embed],
+            };
+
+            try {
+                const response = await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert("Suggestion sent successfully! Thank you!");
+                    document.getElementById('username').value = '';
+                    document.getElementById('problem-type').value = 'Page not working';
+                    document.getElementById('suggestion-content').value = '';
+                    document.getElementById('image-url').value = '';
+                } else {
+                    alert("Failed to send suggestion. Please try again later.");
+                }
+            } catch (error) {
+                console.error("Error sending suggestion:", error);
+                alert("An error occurred. Please try again later.");
+            }
+        }
+    </script>
+</body>
+</html>

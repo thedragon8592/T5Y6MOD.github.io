@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Spammer - T5Y6 MOD</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #141414, #0d6efd);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: backgroundAnimation 5s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #141414, #0d6efd); }
+            50% { background: linear-gradient(45deg, #0d6efd, #141414); }
+            100% { background: linear-gradient(45deg, #141414, #0d6efd); }
+        }
+
+        .navbar {
+            background-color: #0d6efd;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border: 2px solid #0d6efd;
+            background: linear-gradient(135deg, #2e2e2e, #141414);
+            animation: containerAnimation 2s ease-out;
+        }
+
+        @keyframes containerAnimation {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #0d6efd;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            background: #2c2c2c;
+            border: 2px solid #0d6efd;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff7f00;
+            background: #3e3e3e;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button-container button {
+            background-color: #0d6efd;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #ff7f00;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>Shockify Spammer</h1>
+    </header>
+
+    <div class="container">
+        <h2>Webhook Spammer</h2>
+        <div class="form-group">
+            <label for="webhook-url">Webhook URL</label>
+            <input type="url" id="webhook-url" placeholder="Enter your Discord Webhook URL" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter a username">
+        </div>
+        <div class="form-group">
+            <label for="avatar-url">Avatar URL</label>
+            <input type="url" id="avatar-url" placeholder="Enter a valid image URL">
+        </div>
+        <div class="form-group">
+            <label for="message-content">Message Content</label>
+            <textarea id="message-content" placeholder="Write your message here..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="embed-title">Embed Title</label>
+            <input type="text" id="embed-title" placeholder="Enter embed title">
+        </div>
+        <div class="form-group">
+            <label for="embed-description">Embed Description</label>
+            <textarea id="embed-description" placeholder="Enter embed description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="embed-color">Embed Color</label>
+            <input type="color" id="embed-color" value="#00ff00">
+        </div>
+        <div class="form-group">
+            <label for="number-of-messages">Number of Messages</label>
+            <input type="number" id="number-of-messages" placeholder="Enter number of messages" min="1">
+        </div>
+        <div class="form-group">
+            <label for="interval">Interval (ms)</label>
+            <input type="number" id="interval" placeholder="Enter interval in milliseconds" min="100">
+        </div>
+        <div class="button-container">
+            <button id="start-button" onclick="startSpam()">Start Spam</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage(webhookURL, payload) {
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
+        }
+
+        async function startSpam() {
+            const webhookURL = document.getElementById('webhook-url').value;
+            const username = document.getElementById('username').value || "Default Username";
+            const avatarURL = document.getElementById('avatar-url').value || "";
+            const messageContent = document.getElementById('message-content').value;
+            const embedTitle = document.getElementById('embed-title').value;
+            const embedDescription = document.getElementById('embed-description').value;
+            const embedColor = document.getElementById('embed-color').value || "#000000";
+            const numberOfMessages = parseInt(document.getElementById('number-of-messages').value);
+            const interval = parseInt(document.getElementById('interval').value);
+
+            if (!webhookURL || !numberOfMessages || !interval || numberOfMessages < 1 || interval < 100) {
+                alert("Please fill in all fields correctly. Minimum interval is 100ms.");
+                return;
+            }
+
+            const payload = {
+                content: messageContent || null,
+                username,
+                avatar_url: avatarURL,
+                embeds: embedDescription
+                    ? [{
+                        title: embedTitle || null,
+                        description: embedDescription,
+                        color: parseInt(embedColor.replace('#', ''), 16),
+                    }]
+                    : null
+            };
+
+            for (let i = 0; i < numberOfMessages; i++) {
+                sendMessage(webhookURL, payload);
+                await new Promise(resolve => setTimeout(resolve, interval));
+            }
+
+            alert('Spam completed!');
+        }
+    </script>
+</body>
+</html>

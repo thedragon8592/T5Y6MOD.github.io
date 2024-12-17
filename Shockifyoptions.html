@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shockify Instructions</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .image {
+            margin: 20px 0;
+            max-width: 80%;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .image:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px 5px #00ffcc;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .navigation button {
+            background: linear-gradient(90deg, #00aaff, #0077cc);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .navigation button:hover {
+            box-shadow: 0px 0px 15px 5px #00aaff;
+        }
+
+        .navigation button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Gaming neon glow */
+        .neon {
+            text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Slide 1 -->
+        <div id="slide-1" class="slide active">
+            <h2 class="neon">¡Hola Beamer, listo!</h2>
+            <p>1. **Roblox username**: Aquí pondrás el username de cualquier persona de Roblox.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315447868194295838/image.png" class="image" alt="Roblox Username">
+        </div>
+
+        <!-- Slide 2 -->
+        <div id="slide-2" class="slide">
+            <h2 class="neon">Fake Username</h2>
+            <p>2. OK, ahora en **Fake Username** pondrás un apodo.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315448724180308038/image.png" class="image" alt="Fake Username">
+        </div>
+
+        <!-- Slide 3 -->
+        <div id="slide-3" class="slide">
+            <h2 class="neon">Webhook</h2>
+            <p>3. Ahora en **Webhook**. ¿Estás listo? Responde:</p>
+            <div class="navigation">
+                <button onclick="selectOption('pc')">PC</button>
+                <button onclick="selectOption('phone')">Phone</button>
+            </div>
+        </div>
+
+        <!-- PC Slides -->
+        <div id="slide-pc-1" class="slide">
+            <h2 class="neon">Oh en PC, ¡uff qué gamer!</h2>
+            <p>3.1. Crea un servidor de Discord.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315449648399519804/image.png" class="image" alt="Crear Servidor">
+        </div>
+        <div id="slide-pc-2" class="slide">
+            <h2 class="neon">Editar canal</h2>
+            <p>3.2. En general, irás a "Editar canal".</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315450277360308254/image.png" class="image" alt="Editar Canal">
+        </div>
+        <div id="slide-pc-3" class="slide">
+            <h2 class="neon">Integraciones</h2>
+            <p>3.3. Iras a integraciones.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315450557401403482/image.png" class="image" alt="Integraciones">
+        </div>
+        <div id="slide-pc-4" class="slide">
+            <h2 class="neon">Crear webhook</h2>
+            <p>3.4. Presionarás en "Crear webhook".</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315450802621386894/image.png" class="image" alt="Crear Webhook">
+        </div>
+        <div id="slide-pc-5" class="slide">
+            <h2 class="neon">Copiar URL</h2>
+            <p>3.5. Presionarás en "Copiar URL de webhook".</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315451087876128839/image.png" class="image" alt="Copiar URL">
+        </div>
+        <div id="slide-pc-6" class="slide">
+            <h2 class="neon">Pegar URL</h2>
+            <p>3.6. Pegarás la URL en webhook.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315451292608364725/image.png" class="image" alt="Pegar URL">
+        </div>
+        <div id="slide-pc-7" class="slide">
+            <h2 class="neon">Generar</h2>
+            <p>3.7. Presionarás en "Generar" y espera un momento.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315451482547556423/image.png" class="image" alt="Generar">
+        </div>
+        <div id="slide-pc-8" class="slide">
+            <h2 class="neon">Revisar Canal</h2>
+            <p>3.8. Ahora revisa el canal de donde sacaste el webhook. Te llegará algo así:</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315452042877210624/image.png" class="image" alt="Revisar Canal">
+        </div>
+        <div id="slide-pc-9" class="slide">
+            <h2 class="neon">Copiar URL de Perfil</h2>
+            <p>4.0. Presiona en "Perfil" y copia la URL.</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315452329562083368/image.png" class="image" alt="Copiar URL">
+        </div>
+        <div id="slide-pc-10" class="slide">
+            <h2 class="neon">Generar Link Hider</h2>
+            <p>4.1. Ve al generador y presiona en "Hyperlink".</p>
+            <img src="https://cdn.discordapp.com/attachments/1312399926419787826/1315453288954724433/image.png" class="image" alt="Link Hider">
+        </div>
+        <div id="slide-pc-11" class="slide">
+            <h2 class="neon">Pegar y Generar</h2>
+            <p>4.2. Pega la URL del perfil, presiona en "Generar" y copia el nuevo link. ¡Listo!</p>
+        </div>
+
+        <!-- Navegación -->
+        <div class="navigation">
+            <button id="prev-btn" onclick="prevSlide()" disabled>Anterior</button>
+            <button id="next-btn" onclick="nextSlide()">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let pathChosen = false;
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === slides.length || (currentSlide === 3 && !pathChosen);
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                if (index + 1 === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            updateButtons();
+        }
+
+        function selectOption(option) {
+            pathChosen = true;
+            updateButtons();
+            const nextPC = currentSlide + (option === 'pc' ? 1 : 10); // Logic for PC/Phone slide
+            currentSlide = nextPC;
+            updateSlides();
+        }
+    </script>
+</body>
+</html>
